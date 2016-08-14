@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.gilarska.anna.kalk.KalkulatorActivity"
+    tools:showIn="@layout/view_kalkulator">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Podaj 2 liczby, a następnie wybierz znak działania"
+        android:textSize="15dp"
+        android:id="@+id/textView" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/pierwszaLiczbaPole"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/drugaLiczbaPole" />
+
+    <EditText
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/drugaLiczbaPole"
+        android:layout_alignTop="@+id/pierwszaLiczbaPole"
+        android:layout_toEndOf="@+id/odejmowaniePrzycisk" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:text="+"
+        android:id="@+id/dodawaniePrzycisk"
+        android:layout_below="@+id/drugaLiczbaPole"
+        android:layout_alignParentStart="true"
+        android:textSize="20dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:id="@+id/odejmowaniePrzycisk"
+        android:layout_below="@+id/drugaLiczbaPole"
+        android:layout_toEndOf="@+id/dodawaniePrzycisk"
+        android:textSize="20dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:text="*"
+        android:id="@+id/mnozeniePrzycisk"
+        android:layout_below="@+id/drugaLiczbaPole"
+        android:layout_toEndOf="@+id/odejmowaniePrzycisk"
+        android:textSize="20dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="90dp"
+        android:layout_height="wrap_content"
+        android:text="/"
+        android:id="@+id/dzieleniePrzycisk"
+        android:layout_above="@+id/wynikText"
+        android:layout_toEndOf="@+id/mnozeniePrzycisk"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="500dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/dodawaniePrzycisk"
+        android:layout_toEndOf="@+id/dodawaniePrzycisk"
+        android:layout_marginTop="43dp"
+        android:textSize="20dp"
+        android:textIsSelectable="true"
+        android:layout_alignParentStart="true"
+        android:id="@+id/wynikText" />
+</RelativeLayout>
