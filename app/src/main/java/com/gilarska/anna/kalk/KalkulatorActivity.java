@@ -3,7 +3,6 @@ package com.gilarska.anna.kalk;
 import android.os.Bundle;
 import android.app.Activity;
 import android.text.TextUtils;
-import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -12,14 +11,14 @@ import android.widget.TextView;
 
 public class KalkulatorActivity extends Activity implements OnClickListener {
 
-    EditText pierwszaLiczbaPole;
-    EditText drugaLiczbaPole;
-    Button dodawaniePrzycisk;
-    Button odejmowaniePrzycisk;
-    Button mnozeniePrzycisk;
-    Button dzieleniePrzycisk;
+    EditText firstNumberField;
+    EditText secondNumberField;
+    Button addButton;
+    Button minusButton;
+    Button timesButton;
+    Button divideButton;
 
-    TextView wynikText;
+    TextView resultText;
 
 
     @Override
@@ -27,67 +26,67 @@ public class KalkulatorActivity extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.view_kalkulator);
 
-        //okreslenie elementow
+        //determination of the elements
 
-        pierwszaLiczbaPole = (EditText) findViewById(R.id.pierwszaLiczbaPole);
-        drugaLiczbaPole = (EditText) findViewById(R.id.drugaLiczbaPole);
+        firstNumberField = (EditText) findViewById(R.id.firstNumberField);
+        secondNumberField = (EditText) findViewById(R.id.secondNumberField);
 
-        dodawaniePrzycisk = (Button) findViewById(R.id.dodawaniePrzycisk);
-        odejmowaniePrzycisk = (Button) findViewById(R.id.odejmowaniePrzycisk);
-        mnozeniePrzycisk = (Button) findViewById(R.id.mnozeniePrzycisk);
-        dzieleniePrzycisk = (Button) findViewById(R.id.dzieleniePrzycisk);
+        addButton = (Button) findViewById(R.id.plusButton);
+        minusButton = (Button) findViewById(R.id.minusButton);
+        timesButton = (Button) findViewById(R.id.timesButton);
+        divideButton = (Button) findViewById(R.id.divideButton);
 
-        wynikText = (TextView) findViewById(R.id.wynikText);
+        resultText = (TextView) findViewById(R.id.resultText);
 
-        //wykonanie po nacisnieciu przyciskow
+        //execution after clickig the button
 
-        dodawaniePrzycisk.setOnClickListener((OnClickListener)this);
-        odejmowaniePrzycisk.setOnClickListener((OnClickListener)this);
-        mnozeniePrzycisk.setOnClickListener((OnClickListener)this);
-        dzieleniePrzycisk.setOnClickListener((OnClickListener)this);
+        addButton.setOnClickListener((OnClickListener)this);
+        minusButton.setOnClickListener((OnClickListener)this);
+        timesButton.setOnClickListener((OnClickListener)this);
+        divideButton.setOnClickListener((OnClickListener)this);
     };
 
     @Override
     public void onClick(View v){
-        float liczba1 = 0 ;
-        float liczba2 = 0 ;
-        float wynik = 0 ;
+        float number1 = 0 ;
+        float number2 = 0 ;
+        float result = 0 ;
 
         String operator = "" ;
 
-        //Sprawdzamy, czy pola sa puste
-        if(TextUtils.isEmpty(pierwszaLiczbaPole.getText().toString())
-                || TextUtils.isEmpty(drugaLiczbaPole.getText().toString()) )
+        //Checking if the fields are empty
+        if(TextUtils.isEmpty(firstNumberField.getText().toString())
+                || TextUtils.isEmpty(secondNumberField.getText().toString()) )
         {
-            return; //nie wykonuj dalszego kodu, bo nie ma podanych liczb
+            return; //do not run the code because the fields are empty
         }
 
-        //czytamy pole z liczbami i przypisujemy je do zmiennych
-        liczba1 = Float.parseFloat(pierwszaLiczbaPole.getText().toString());
-        liczba2 = Float.parseFloat(drugaLiczbaPole.getText().toString());
+        //reading the fields with numbers and assigning them to variables
+        number1 = Float.parseFloat(firstNumberField.getText().toString());
+        number2 = Float.parseFloat(secondNumberField.getText().toString());
 
-       //definiujemy, ktory przycisk zostal nacisniety
+       //defining which number was clicked
         switch(v.getId()){
-            case R.id.dodawaniePrzycisk:
+            case R.id.plusButton:
             operator = "+";
-                wynik = liczba1 + liczba2;
+                result = number1 + number2;
                 break;
-            case R.id.odejmowaniePrzycisk:
+            case R.id.minusButton:
             operator = "-";
-            wynik = liczba1 - liczba2;
+            result = number1 - number2;
             break;
-            case R.id.mnozeniePrzycisk:
+            case R.id.timesButton:
                 operator = "*";
-                wynik = liczba1 * liczba2;
+                result = number1 * number2;
                 break;
-            case R.id.dzieleniePrzycisk:
+            case R.id.divideButton:
                 operator = ":";
-                wynik = liczba1 / liczba2;
+                result = number1 / number2;
                 break;
             default:
                 break;
         }
-        wynikText.setText(liczba1+" "+operator+" "+liczba2+" "+" = "+wynik);
+        resultText.setText(number1+" "+operator+" "+number2+" "+" = "+result);
     }
 
 }
