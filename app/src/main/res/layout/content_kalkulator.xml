@@ -24,27 +24,27 @@
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
-        android:id="@+id/pierwszaLiczbaPole"
+        android:id="@+id/firstNumberField"
         android:layout_below="@+id/textView"
         android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/drugaLiczbaPole" />
+        android:layout_toStartOf="@+id/secondNumberField" />
 
     <EditText
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
         android:ems="10"
-        android:id="@+id/drugaLiczbaPole"
-        android:layout_alignTop="@+id/pierwszaLiczbaPole"
-        android:layout_toEndOf="@+id/odejmowaniePrzycisk" />
+        android:id="@+id/secondNumberField"
+        android:layout_alignTop="@+id/firstNumberField"
+        android:layout_toEndOf="@+id/minusButton" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:text="+"
-        android:id="@+id/dodawaniePrzycisk"
-        android:layout_below="@+id/drugaLiczbaPole"
+        android:id="@+id/plusButton"
+        android:layout_below="@+id/secondNumberField"
         android:layout_alignParentStart="true"
         android:textSize="20dp" />
 
@@ -53,9 +53,9 @@
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:text="-"
-        android:id="@+id/odejmowaniePrzycisk"
-        android:layout_below="@+id/drugaLiczbaPole"
-        android:layout_toEndOf="@+id/dodawaniePrzycisk"
+        android:id="@+id/minusButton"
+        android:layout_below="@+id/secondNumberField"
+        android:layout_toEndOf="@+id/plusButton"
         android:textSize="20dp" />
 
     <Button
@@ -63,9 +63,9 @@
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:text="*"
-        android:id="@+id/mnozeniePrzycisk"
-        android:layout_below="@+id/drugaLiczbaPole"
-        android:layout_toEndOf="@+id/odejmowaniePrzycisk"
+        android:id="@+id/timesButton"
+        android:layout_below="@+id/secondNumberField"
+        android:layout_toEndOf="@+id/minusButton"
         android:textSize="20dp" />
 
     <Button
@@ -73,19 +73,19 @@
         android:layout_width="90dp"
         android:layout_height="wrap_content"
         android:text="/"
-        android:id="@+id/dzieleniePrzycisk"
-        android:layout_above="@+id/wynikText"
-        android:layout_toEndOf="@+id/mnozeniePrzycisk"
+        android:id="@+id/divideButton"
+        android:layout_above="@+id/resultText"
+        android:layout_toEndOf="@+id/timesButton"
         android:textSize="20dp" />
 
     <TextView
         android:layout_width="500dp"
         android:layout_height="100dp"
-        android:layout_below="@+id/dodawaniePrzycisk"
-        android:layout_toEndOf="@+id/dodawaniePrzycisk"
+        android:layout_below="@+id/plusButton"
+        android:layout_toEndOf="@+id/plusButton"
         android:layout_marginTop="43dp"
         android:textSize="20dp"
         android:textIsSelectable="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/wynikText" />
+        android:id="@+id/resultText" />
 </RelativeLayout>
